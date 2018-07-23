@@ -1,0 +1,1231 @@
+<script language="javascript" type="text/javascript">
+<!--
+    // keep track of the line # for the currently selected row
+    var selectedRow = "undefined";
+
+    // keep an array of Person objects (the items in the list)
+    var people = new Array();
+
+    function MSIEHighlightRow(rowNumber) {
+        var targetRow = eval("document.all.row" + rowNumber);
+        targetRow.bgColor = "#CFE0F2";
+        targetRow.fontWeight = "bold";
+    }
+
+    function MSIEUnHighlightRow(rowNumber) {
+        var targetRow = eval("document.all.row" + rowNumber);
+        targetRow.bgColor = "white";
+    }
+
+    function NetscapeHighlightRow(rowNumber) {
+        var highlight = document.layers["highlightLayer"];
+        // compute height of rows
+        var height = highlight.clip.height;
+        highlight.moveTo(1, (rowNumber * height));
+        highlight.visibility = "show";
+    }
+
+    function NetscapeUnHighlightRow(rowNumber) {
+        var highlight = document.layers["highlightLayer"];
+        highlight.visibility = "hide";
+    }
+
+    // set functions according to browser type
+    // assume only MSIE or Netscape for example purposes
+    if (navigator.appName.search(/Microsoft Internet Explorer/i) > -1) {
+        HighlightRow = MSIEHighlightRow;
+        UnHighlightRow = MSIEUnHighlightRow;
+    }
+    else {
+        HighlightRow = NetscapeHighlightRow;
+        UnHighlightRow = NetscapeUnHighlightRow;
+    }
+
+    // select the specified row
+    function SelectRow(rowID) {
+        // unhighlight the previously selected row, if any
+        if (selectedRow != "undefined")
+            UnHighlightRow(selectedRow);
+
+        // if necessary, convert row ID to row line number here
+        rowNumber = rowID;
+
+        // highlight selected row
+        HighlightRow(rowNumber);
+        selectedRow = rowNumber;
+
+        // display details for this person
+    }
+
+    // Hide tags with id="noprint" when printing
+    function printSetup() {
+        var a = document.all.item("noprint");
+        if (a != null) {
+            if (a.length != null) {
+                //multiple tags found
+                for (i = 0; i < a.length; i++) {
+                    a(i).style.display = window.event.type == "beforeprint" ? "none" : "inline";
+                }
+            }
+            else
+            //only one tag
+                a.style.display = window.event.type == "beforeprint" ? "none" : "inline";
+        }
+    } 
+//-->
+</script>
+
+
+
+<script language="javascript" type="text/javascript">
+    var newwindow;
+    function poptastic(url) {
+        newwindow = window.open(url, 'name', 'height=275,width=300,screenX=300,screenY=300,scrollbars=1,resizable=0');
+        if (window.focus) { newwindow.focus() }
+    }
+
+    var newwindow1;
+    function poptastic1(url) {
+        newwindow1 = window.open(url, 'name', 'height=325,width=325,screenX=325,screenY=300,scrollbars=1,resizable=0');
+        if (window.focus) { newwindow1.focus() }
+    }
+
+    var newwindow2;
+    function popup(url) {
+        newwindow2 = window.open(url, 'name', 'height=300,width=600,screenX=600,screenY=300,scrollbars=1,resizable=0');
+        if (window.focus) { newwindow2.focus() }
+    }
+
+    var newwindow3;
+    function popup1(url) {
+        newwindow3 = window.open(url, 'name', 'height=260,width=400,screenX=260,screenY=400,scrollbars=1,resizable=0');
+        if (window.focus) { newwindow3.focus() }
+    }
+
+    function cboTaxYear_onChange(form, acctnum, tab) {
+        var ty = form.cboTaxYear.options[form.cboTaxYear.selectedIndex].text
+//        if (ty > 2004)
+            location.href = 'RecordDetails.asp?card=1&bld=1&tab=' + tab + '&taxyear=' + ty + '&acct=' + acctnum;
+//        if (ty <= 2004)
+//            location.href = 'PriorYear_Details.asp?card=1&bld=1&tab=' + tab + '&taxyear=' + ty + '&acct=' + acctnum;
+        return false;
+    }
+</script>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+        <title>Hcad Acct: 0610070500013            </title>
+        <link href="/StyleSheets/mainstyle.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/js/boxover.js"></script>
+    </head>
+    
+    
+    <body onLoad="SelectRow(1)">
+    
+        <table width="100%" border="0" cellpadding="1" cellspacing="0">
+    
+            <tr>
+                <td valign="top">	
+
+                    <table class="bgcolor_1" cellspacing="1" width="100%" border="0" cellpadding="2">
+                        
+                        <tr class="bgcolor_2" valign="center">  
+                            <td noWrap align="left">
+                                <p>
+                                    <form name="frmTaxYear"> 
+                                        Tax Year: 
+                                        <select name="cboTaxYear" onChange="cboTaxYear_onChange(this.form, '0610070500013            ', '')">              
+	                                    
+	                                            <option value="2018" selected>2018</option>
+	                                    
+	                                            <option value="2017" >2017</option>
+	                                    
+	                                            <option value="2016" >2016</option>
+	                                    
+	                                            <option value="2015" >2015</option>
+	                                    
+	                                            <option value="2014" >2014</option>
+	                                    
+	                                            <option value="2013" >2013</option>
+	                                    
+	                                    </select>
+	                                </form>
+	                            </p>
+	                        </td>
+	    
+                            <td align="center" class="data">
+                                HARRIS COUNTY APPRAISAL DISTRICT 
+                                <br />REAL PROPERTY ACCOUNT INFORMATION 
+                                <br /><b>0610070500013            </b>
+                            </td> 
+
+                            <td class="subheader" align="center">
+                                
+		                                <a href="Print.asp?taxyear=2018&amp;acct=0610070500013            &amp;card=1&amp;bld=1" target="_blank"><img src="/images/print.gif" width="20" border="0" alt="Print" />Print</a>
+                                
+                                    <a href="javascript:poptastic('/records/emaillist.asp?acct=0610070500013            ');" target="_self" ><img src="/images/email.gif" width="20" border="0" alt="Email" />E-mail</a>
+	                        </td>
+                        </tr>
+                        
+                    </table>
+
+                    
+                            <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%" border="0">
+                                <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+                            <!-- ---------- BUTTONS / HEARING EVIDENCE / LINKS ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="0" width="100%" border="0">
+                                
+                                <tr>
+                                    <td align="center" class="data">
+	                                    
+	                                    <div id="noprint">
+                                            
+                                            <!-- ---------- BUTTONS ---------- -->
+                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                
+                                                <tr align="center" valign="top">    
+		                                            
+					                                        <td>
+					                                            <table cellspacing="0" cellpadding="0" border="0">
+							                                        <form action="/iFile" method="get" id="form0" name="form0" height="2">
+							                                        
+							                                            <tr>
+							                                                <td>
+							                                                    <input name="taxyear" type="hidden" value="2018" />
+							                                                    <input name="acct" type="hidden" value="0610070500013            " />
+							                                                    <input type="submit" value="File A Protest" id="submit0" name="submit0" />
+							                                                </td>
+							                                            </tr>
+							                                            
+							                                        </form>
+					                                            </table>
+					                                            
+					                                        </td>
+   				                                    
+                                                    <!--
+                                                    
+					                                        <td>
+					                                            <table cellspacing="0" cellpadding="0" border="0">
+							                                        
+							                                        <form action="/Records/details.asp#Building" method="get" id=form1 name=form1 height="2">
+							                                            
+							                                            <tr>
+							                                                <td>
+							                                                    <input name="url" type="hidden" value="hideacct" />
+							                                                    <input name="tab" type="hidden" value="" />
+							                                                    <input name="bld" type="hidden" value="1" />
+							                                                    <input name="card" type="hidden" value="" />
+							                                                    <input name="taxyear" type="hidden" value="2018" />
+							                                                    <input name="acct" type="hidden" value="0610070500013            " />
+							                                                    <input type="submit" value="Building Details" id="submit1" name="submit1"  />
+							                                                </td>
+							                                            </tr>
+							                                            
+							                                        </form>
+							                                        
+					                                            </table>
+					                                        </td>
+				                                    
+				                                    -->  
+				                                    
+				                                    <!-- ---------- SIMILAR OWNER NAME ---------- -->
+					                                <td>
+                                                        <table cellspacing="0" cellpadding="0" border="0">
+							                                
+							                                <form action="/Records/SelectRecord.asp" maxlength="13" method="post" id="form2" name="form2" height="2">
+							                                
+							                                    <tr>
+                                                                
+                                                                    <td>
+                                                                        <input name="searchtype" type="hidden" value="name" />
+							                                            <input name="searchval" type="hidden" value="MILBURN THELMA W" />
+                                                                        <input name="taxyear" type="hidden" value="2018" />
+                                                                        <input type="submit" value="Similar Owner Name"  id="submit2" name="submit2" />
+                                                                    </td>
+                                                                
+                                                                </tr>
+                                                            
+                                                            </form>
+                                                            
+                                                        </table>
+                                                    </td>
+                                                    
+                                                    <!-- ---------- NEARBY ADRESSES ---------- -->
+                                                    <td>
+                                                        <table cellspacing="0" cellpadding="0" border="0">
+							                                
+							                                <form action="/Records/SelectRecord.asp" method="post" id="form3" name="form3" height="2">
+							                                    
+							                                    <tr>
+							                                        <td>
+							                                            <input name="searchtype" type="hidden" value="str" />
+                                                                        <input name="stnum" type="hidden" value="771" />
+                                                                        <input name="stname" type="hidden" value="ROSIE ST" />
+                                                                        <input name="taxyear" type="hidden" value="2018" />
+                                                                        <input name="nearby" type="hidden" value="1" />
+                                                                        <input type="submit" value="Nearby Addresses" id="submit3" name="submit3" />
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </form>
+                                                        </table>
+                                                    </td>
+                                                    <!-- ---------- SAME STREET NAME ---------- -->    
+                                                    <td>
+                                                        <table cellSpacing="0" cellPadding="0" border="0">
+							                                    <form action="/records/selectrecord.asp" method="post" id=form7 name=form7 height="2">
+							                                        <tr>
+							                                            <td>
+							                                                <input name="searchtype" type="hidden" value="str">
+                                                                            <input name="stname" type="hidden" value="ROSIE ST">
+                                                                            <input name="taxyear" type="hidden" value="2018">
+                                                                            <input name="samestreet" type="hidden" value="1">
+                                                                            <input type="submit" value="Same Street Name" id=submit7 name=submit7 />
+                                                                        </td>
+                                                                    </tr>
+                                                                   </form>
+                                                        </table>
+                                                    </td>   
+                                                    
+                                                    <!-- ---------- RELATED MAPS ---------- -->
+                                                    <td>
+                                                        <table cellspacing="0" cellpadding="0" border="0">
+                                                        
+							                                <form action="maps.asp?acct=0610070500013            " method="post" id="form4" name="form4" height="2">
+							                                
+							                                    <tr>
+                                                                    <td>
+                                                                        <input name="acct" type="hidden" value="0610070500013            " />
+                                                                        <input type="submit" value="Related Map 5261B" id="submit4" name="submit4" />
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </form>
+                                                            
+							                            </table>
+                                                    </td>
+                                                    
+                                                    <!-- ---------- NEIGHBORHOOD SALES ---------- -->
+				                                    <!--
+				                                    
+							                                <td>
+							                                    <table cellspacing="0" cellpadding="0" border="0">
+							                                        
+							                                        <form action="/records/NbhdSales.asp" method="post" id="form5" name="form5" height="2">
+							                                        
+							                                            <tr>
+							                                                <td>
+							                                                    <input name="nbhd" type="hidden" value="8045.04" />
+								                                                <input name="tx_yr" type="hidden" value="2018" />
+							                                                    <input type="submit" value="Neighborhood Sales" id="submit5" name="submit5" />
+							                                                </td>
+							                                            </tr>
+							                                            
+							                                        </form>
+							                                        
+							                                    </table>
+					                                        </td>
+				                                    
+				                                    -->  
+                                                </tr>
+                                                          
+                                            </table>
+                                            
+	                                    </div>  <!-- End "noprint" -->
+	                                    
+                                    </td>
+                                </tr>
+                            </table>
+                                
+                            <!-- ---------- HEARING EVIDENCE / SUPPLEMENTAL REPORTS ---------- -->
+                            <script language="javascript">
+	function ShowPDF(file) 
+	{
+		window.open(file,"","dependent,resizable,scrollbars,height=600,width=800");
+	}
+
+	function change_cursor(cursor_type)
+	{
+		if (cursor_type == "")
+			cursor_type = "default";
+	
+		document.body.style.cursor = cursor_type;
+		return (true);
+	}
+</script>
+
+
+                            <!-- End HEARING EVIDENCE -->
+                            
+                            <!-- ---------- LINKS ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%" border="0">
+                                <tr align="center" height="20">
+                                    <td bgcolor="white" noWrap width="100%">
+                                        
+                                        <a href="javascript:poptastic1('/records/Ownership.asp?acct=0610070500013            &taxyear=2018');" target="_self" >Ownership History</a>
+	                                    
+	                                    
+                                    </td>
+                                </tr>
+                                
+                            </table>
+         
+    		                <!-- ---------- Owner and Property Information ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%" border="0">
+                                        
+                                <tr align="center">
+                                    <th align="center" class="sub_header" colspan="2" width="100%">Owner and Property Information</th>
+                                </tr>
+                                
+                                <tr>
+
+                                    <td class="data" valign="top" noWrap>
+                                    
+                                        <table width="350">
+                                        
+                                            <tr>    
+                                                <td valign="top" noWrap>Owner Name &<br />Mailing Address:</td>
+                                                <th align="left" valign="top" nowrap>
+                                                
+                                                <!-- ---------- OWNER NAME ---------- -->
+                                                MILBURN THELMA W<br />
+                                                 
+
+                                                <!-- ---------- MAILING ADDRESS ---------- -->
+                                                
+                                                        <!-- ---------- MAILING ADDRESS (MAIL TO) ---------- -->
+                                                        
+
+                                                        <!-- ---------- MAILING ADDRESS (ADDR1 AND ADDR2) ---------- -->
+                                                        27111 SUNSET PINES DR<br />
+                                                        
+                                                
+                                                        <!--
+                                                        ------------------------------------------------
+                                                        'RA 09/11/2012: 
+                                                            Changed order of Owner / Address to :
+
+                                                                Owner Name(s)
+                                                                MailTo
+                                                                Addr_1
+                                                                Addr_2
+                                                                City
+                                                                State
+                                                                Zip
+                                                                Country
+                                                        ------------------------------------------------
+                                                        27111 SUNSET PINES DR
+                                                        ------------------------------------------------
+                                                        -->
+
+                                                        <!-- ---------- MAILING ADDRESS (CITY-STATE-ZIP OR COUNTRY)---------- -->
+                                                        SPRING&nbsp;TX&nbsp;77373-7928<br />
+                                                        
+                                                            <!--<br />-->
+                                                        
+                                                
+                                               </th>
+                                            </tr>
+                                        </table>
+  
+                                    </td>
+ 
+                                    <td valign="top" class="data" noWrap>
+                                        
+                                        <table width="375">
+                                            
+                                            <tr>
+                                                <td valign="top" width="110" noWrap>Legal Description:</td>
+                                                <th valign="top" align="left">LTS 13 & 14 BLK 50<br />HIGHLAND HEIGHTS ANNEX SEC 6<br /></th>
+                                            </tr>
+
+                                            
+                                                    <tr>
+                                                        <td valign="top" width="110" noWrap>Property Address:</td>
+                                                        <th valign="top" align="left"> 771 ROSIE ST<br />HOUSTON TX 77091</th>
+                                                    </tr>
+                                            
+
+                                        </table>
+ 
+                                    </td>
+                                    
+                                </tr>
+
+                            </table>
+
+                            <!-- ---------- Historical Designation ---------- -->
+
+                            
+
+                            <!-- ---------- State Class Code / Land Use Code ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                                
+                                            <tr align="center">
+   	                                            <td class="sub_header" colspan="4" noWrap><a href="/resources/statecode.asp" target="_self" >State Class Code</a></td>
+                                                <td class="sub_header" colspan="3" noWrap><a href="/resources/landcode.asp" target="_self" >Land Use Code</a></td>
+                                            </tr>
+                                            
+                                            <tr align="center" valign="top">
+	                                            <td class="data" colspan="4">A1 -- Real, Residential, Single-Family</td>
+                                                <td class="data" colspan="3">1001 -- Residential Improved</td>
+                                            </tr>
+                                
+                                
+                                        <tr align="center">
+                                            <td class="sub_header" noWrap>Land Area</td>
+                                            <td class="sub_header" noWrap>Total Living Area</td>
+                                            
+                                                <!--<td class="sub_header" noWrap><a href=/resources/effectivearea.asp target="_self" >Effective Area</td>-->
+                                            
+                                          <td class="sub_header" noWrap><a href="/resources/nhlist.asp?ty=2018&acct=0610070500013            " target="_self" >Neighborhood</td>
+                                            
+                                            <td class="sub_header" noWrap>Neighborhood<br />Group</td>
+                                            
+                                          <td class="sub_header" noWrap>Market Area</td>
+                                          <td class="sub_header" noWrap>Map Facet</td>
+                                          <td class="sub_header" noWrap><a href="javascript:popup1('keymap.asp')" target="_self" >Key Map</a><sup>®</sup></td>
+                                        </tr>
+                                        
+                                        <tr align="center" valign="top">
+                                            <td class="data">21,800 SF</td>
+                                            
+			                                            <td class="data">2,040 SF</td>
+			                                
+	                                                <!--<td class="data">2,104</td>-->
+	                                        
+                                          <td class="data">8045.04</td>
+                                            
+                                            <td class="data">1677</td>                                       
+                                            
+                                          <td class="data">170 -- 1F  Highland Heights, Acres Homes, Pinemont Area</td>
+                                          <td class="data"><a href="maps.asp?acct=0610070500013            " target="_self" >5261B</a></td>
+                                          <td class="data">412Y</td>
+                                        </tr>
+	                            
+	                            
+	                        </table>
+
+	                        <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+	                            <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+                            <!-- ---------- Value Status Information ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                                
+                                        <tr align="center"> 
+                                            <th class="sub_header" colspan="4">Value Status Information</th>
+                                        </tr>
+        
+                                        <tr align="center">
+                                            <!--<th class="sub_header" ><a href="/Help/CappedValues.asp" target="_self" >Capped Account</a></th>-->
+                                            <th class="sub_header" >Value Status</th>
+                                            
+                                                    <th class="sub_header" >Notice Date</th>
+                                            
+                                            <!--<th class="sub_header" ><a href="/Resources/ARBStatus.asp?acct=0610070500013            &ty=2018" target="_self" >ARB Status</a></th>-->
+                                            <!--<th class="sub_header" ><a href="/Resources/ARBStatus.asp" target="_self" >ARB Status</a></th>-->
+                                            <th class="sub_header" >Shared CAD</a></th>
+                                        </tr>
+                                        
+                                        <tr align="center" valign="top">
+                                            <!--<td class="data">Yes</td>-->
+
+                                            <td class="data">
+                                            Noticed
+                                            </td>
+
+                                            
+                                                    <td class="data">
+                                                    04/13/2018
+                                                    </td>
+                                            
+                                            <td class="data">No</td>
+
+                                        </tr>
+                                
+                                
+                                    <!--<td class="data"></td>-->
+                                    <!--
+                                        <td class="data">No</td>
+                                    </tr>
+                                    -->
+                                
+                            </table>
+
+                            <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+	                            <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+                            <!-- ---------- Exemptions Starts Here ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                                
+                                <tr align="center"> 
+                                    <th class="sub_header" colspan="8">Exemptions and Jurisdictions</th>
+                                </tr>
+                                
+                                <tr align="center">
+                                    <th class="sub_header">Exemption Type</th>
+                                    <th class="sub_header">Districts</th>
+                                    <th class="sub_header"><a href="/resources/jurdata.asp?card=1&taxyear=2018&acct=0610070500013            " target="_self">Jurisdictions</a></th>
+                                    <th class="sub_header">Exemption Value</th>
+                                    <th class="sub_header"><a href="/Resources/arbstatus.asp" target="_self" >ARB Status</a></th>
+                                    <th class="sub_header" align="right">2017 Rate</th>
+                                    <th class="sub_header" align="right">2018 Rate</th>
+                                    <th class="sub_header" align="center"><a href="/resources/taxbill.asp?card=1&taxyear=2018&acct=0610070500013            " target="_self" >Online<br />Tax Bill</a></th>
+                                </tr>
+                                
+                                <tr align="center" valign="top">      
+                                    
+                                    <td class="data" align="center" rowspan="8">
+                                        <b>
+		                                    Residential Homestead (Multiple)<br />
+		                                </b>
+		                            </td>
+		                            
+                                    
+                                                <td class="data" align="center">001</td>
+                                                <td class="data" align="left"> <a href="http://www.hctax.net/" target="_new" >HOUSTON ISD</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">1.206700</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">040</td>
+                                                <td class="data" align="left"> <a href="http://www.hctax.net/" target="_new" >HARRIS COUNTY</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.418010</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">041</td>
+                                                <td class="data" align="left"> <a href="http://www.hcfcd.org/" target="_new" >HARRIS CO FLOOD CNTRL</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.028310</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">042</td>
+                                                <td class="data" align="left"> <a href="http://portofhouston.com/" target="_new" >PORT OF HOUSTON AUTHY</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.012560</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">043</td>
+                                                <td class="data" align="left"> <a href="http://www.hchdonline.com/" target="_new" >HARRIS CO HOSP DIST</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.171100</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">044</td>
+                                                <td class="data" align="left"> <a href="http://www.hcde-texas.org/" target="_new" >HARRIS CO EDUC DEPT</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.005195</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">048</td>
+                                                <td class="data" align="left"> <a href="http://www.hccs.edu/" target="_new" >HOU COMMUNITY COLLEGE</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.100263</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                                <tr>
+                                    
+                                                <td class="data" align="center">061</td>
+                                                <td class="data" align="left"> <a href="http://www.houstontx.gov/" target="_new" >CITY OF HOUSTON</a></td>
+                                                <td class="data" align="right">
+                                                48,882
+                                                </td>
+                                                <td class="data" align="center">
+                                                Not Certified
+                                                </td>
+                                                <td class="data" align="right">0.584210</td>
+                                                <td class="data" align="right">&nbsp; </td>
+                                                <td class="data" align="center" >
+                                                     
+                                                </td>
+                                            </tr>
+                                    
+                                <!--</tr>-->
+
+                                
+	                                        <!--<tr align="center">
+		                                        <td bgcolor="white" width="100%" colspan="7">* </td>
+	                                        </tr>-->
+                                
+
+                                    <tr align="center">
+		                                <td bgcolor="white" width="100%" colspan="8">Texas law prohibits us from displaying residential photographs, sketches, floor plans, or information indicating the age of a property owner on our website. You can inspect this information or get a copy at <a href="http://hcad.org/about/contact/" target="_parent">HCAD's information center at 13013 NW Freeway</a>.</td>
+	                                </tr>
+
+                                
+	                                        <!--<tr align="center">
+		                                        <td bgcolor="white" width="100%" colspan="8">* An exemption is pending on this account.</td>
+	                                        </tr>-->
+                                
+                                
+                            </table>
+              
+                            <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+	                            <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+                    
+                            <!-- ---------- Valuations ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                                
+                                <tr align="center"> 
+                                    <th class="sub_header" colspan="6">Valuations</th>
+                                </tr>
+                                
+                                <tr align="center">    
+                                      <td class="sub_header" align="center" colspan="3">Value as of January 1, 2017</td>
+                                      <td class="sub_header" align="center" colspan="3">Value as of January 1, 2018</td>
+                                </tr>
+                                
+                                <tr align="right" valign="top">
+                                    <td class="data" width="20%">&nbsp;</td>
+                                    <td class="data" width="15%">Market</td>
+                                    <td class="data" width="15%">Appraised</td>
+                                    <td class="data" width="20%">&nbsp;</td>
+                                    <td class="data" width="15%">Market</td>
+                                    <td class="data" width="15%">Appraised</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="data" align="left">Land</td>
+                                    
+                                            <td class="data" align="right">30,620</td>
+                                    
+                                    <td class="data">&nbsp;</td>
+                                    <td class="data" align="left">Land</td>
+                                    <td class="data" align="right">
+                                    44,520
+                                    </td>
+                                    <td class="data">&nbsp;</td>
+                                </tr>
+                                 
+                                <tr>
+                                    <td class="data" align="left">Improvement</td>
+                                    
+                                            <td class="data" align="right">30,558</td>
+                                    
+                                    <td class="data">&nbsp;</td>
+                                    <td class="data" align="left">Improvement</td>
+                                    <td class="data" align="right">
+                                    31,231
+                                    </td>
+                                    <td class="data">&nbsp;</td>
+                                </tr>
+                                
+                                
+                                
+                                <tr align="right">
+                                    <td class="data" align="left">Total</td>
+                                    <td class="data" align="right">61,178</td>
+                                    <td class="data" align="right">61,178</td>
+                                    <td class="data" align="left">Total</td>
+                                    <td class="data" align="right">
+                                    75,751
+                                    </td>
+                                    <td class="data" align="right">
+                                    69,832
+                                    </td>    
+                                </tr>
+                                  
+                                <tr align="center">
+                                    <td bgcolor="white" colspan="6" noWrap width="100%"><a href="javascript:popup('HistoryValue.asp?currenttaxyear=2018&amp;LastTaxYear=&amp;acct=0610070500013            ')" target="_self" >5-Year Value History</a></td>
+                                </tr>
+                                
+                            </table>
+                            <!-- ---------- Valuations Ends Here ---------- -->
+               
+                            <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+	                            <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+                    
+    
+                            <!-- ---------- Land Lines Start ---------- -->
+                            
+                            
+                            <table  class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                        	    
+	                            <tr align="center"> 
+		                            <th class="sub_header" colspan="13">Land</th>
+	                            </tr>
+                        	    
+                            
+		                                <tr align="center"> 
+			                                <th class="sub_header" colspan="13">Market Value Land</th>
+		                                </tr>
+                        		        
+			                            <tr align="center">
+			                                <th class="sub_header"><a href="/resources/landline.asp?taxyear=2018" target="_self" >Line</a></th>
+			                                <th class="sub_header">Land Use</th>
+			                                <!--<th class="sub_header">Site<br />Code</th>-->
+			                                <th class="sub_header">Unit<br />Type</th>
+			                                <th class="sub_header">Units</th>
+			                                <th class="sub_header">Size<br />Factor</th>
+			                                <th class="sub_header">Site<br />Factor</th>
+			                                <th class="sub_header">Appr O/R<br />Factor</th>
+			                                <th class="sub_header">Appr O/R<br />Reason</th>
+			                                <th class="sub_header">Total<br />Adj</th>
+			                                <th class="sub_header">Unit<br />Price</th>
+			                                <th class="sub_header">Adj Unit<br />Price</th>
+			                                <th class="sub_header">Value</th>
+		                                </tr>
+                        		        
+		                                
+		                                        <tr id="row1" align="center" valign="top" bgcolor="white">
+			                                        <td class="data">1</td>
+			                                        <td class="data">1001 -- Res Improved Table Value   
+                                                        <br />SF1  -- Primary SF   
+			                                        </td>			     
+			                                        <!--<td class="data">SF1 </td>-->
+			                                        <td class="data">SF</td>
+			                                        <td class="data" align="right">10,000</td>
+			                                        <td class="data">1.00</td>
+			                                        <td class="data">1.00</td>
+			                                        <td class="data">1.00</td>
+			                                        <td class="data">--</td>
+			                                        <td class="data">1.00</td>
+			                                        
+    				                                        <td class="data" align="right">2.80</td>
+				                                            <td class="data" align="right">2.80</td>
+				                                            <td class="data" align="right">28,000.00</td>
+			                                        
+		                                        </tr>
+	                        
+		                                        <tr id="row2" align="center" valign="top" bgcolor="white">
+			                                        <td class="data">2</td>
+			                                        <td class="data">1001 -- Res Improved Table Value   
+                                                        <br />SF3  -- Primary SF   
+			                                        </td>			     
+			                                        <!--<td class="data">SF3 </td>-->
+			                                        <td class="data">SF</td>
+			                                        <td class="data" align="right">11,800</td>
+			                                        <td class="data">1.00</td>
+			                                        <td class="data">0.50</td>
+			                                        <td class="data">1.00</td>
+			                                        <td class="data">--</td>
+			                                        <td class="data">0.50</td>
+			                                        
+    				                                        <td class="data" align="right">2.80</td>
+				                                            <td class="data" align="right">1.40</td>
+				                                            <td class="data" align="right">16,520.00</td>
+			                                        
+		                                        </tr>
+	                        
+	                            <tr>
+		                            <th class="header" noWrap width="100%" height="3" colspan="13">
+			                            <p align="right"></p>
+		                            </th>
+	                            </tr>
+                        	    
+                            </table>
+                            <!-- ---------- Land Lines End ---------- -->
+    
+                            <!-- ---------- Building Start ---------- -->
+                            
+                                    <table  class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+                                        
+                                        <tr align="center"> 
+		                                    <th class="sub_header" colspan="7">Building</th>
+		                                </tr>
+                        		        
+		                                <tr align="center">
+		                                    <th class="sub_header"><a href="/resources/buildingcode.asp?taxyear=2018" target="_self" >Building</a></th>
+		                                    <th class="sub_header">Year Built</th>
+                                            
+	                                        <th class="sub_header">Type</th>
+	                                        <th class="sub_header">Style</th>
+	                                        <th class="sub_header">Quality</th>
+	                                        <th class="sub_header">Impr Sq Ft</th>
+		                                    
+		                                        <!--<th class="sub_header"><a href=/resources/effectivearea.asp target="_self" >Eff Area</th>-->
+		                                    
+		                                    <th class="sub_header">Building Details</th>
+                                        </tr>
+                                        
+                                        
+	                                                <tr id="Tr3" align="center" valign="top" bgcolor="white" >
+                                                        <td>1</td>
+                                                        <td>1930</td>
+                                                        
+                                                        <td>Residential Single Family</td>
+                                                        <td>101  -- Residential 1 Family</td>
+                                                        <td>Low</td>
+	                                                    
+		                                                            <td class="data"><a href="/help/footage.asp" target="_self" >960 <b>*</b></a></td>
+		                                                
+	                                                            <!--<td>1,002</td>-->
+	                                                    
+                                  
+                                                        <td>
+                                                            
+                                                                    Displayed
+                                                            
+                                                        </td>     
+                                                    </tr>
+                                        
+	                                                <tr id="Tr3" align="center" valign="top" bgcolor="white" >
+                                                        <td>2</td>
+                                                        <td>1938</td>
+                                                        
+                                                        <td>Residential Single Family</td>
+                                                        <td>101  -- Residential 1 Family</td>
+                                                        <td>Low</td>
+	                                                    
+		                                                            <td class="data"><a href="/help/footage.asp" target="_self" >1,080 <b>*</b></a></td>
+		                                                
+	                                                            <!--<td>1,102</td>-->
+	                                                    
+                                  
+                                                        <td>
+                                                            
+                                                                    <table cellspacing="0" cellpadding="0" border="0">
+                            					                        
+					                                                    <form action="/Records/recorddetails.asp" method="post" id="form6" name="form6" height="2">
+                            							                    
+                            							                    <tr>
+							                                                    <td>
+							                                                        <input name="url_change" type="hidden" value="hidden" />
+							                                                        <input name="tab" type="hidden" value="" />
+							                                                        <input name="bld" type="hidden" value="2" />
+							                                                        <input name="card" type="hidden" value="1" />
+							                                                        <input name="taxyear" type="hidden" value="2018" />
+							                                                        <input name="acct" type="hidden" value="0610070500013            " />
+							                                                        <input type="submit" value="View" id="submit" name="submit" />
+							                                                    </td>
+							                                                </tr>
+                            							                    
+					                                                    </form>
+                            					                        
+					                                                </table>
+                        					                        
+                                                                    <!--<a href="/records/details.asp?acct=0610070500013            &taxyear=2018&tab=&card=&bld=2#2">View</a>-->
+                                                            
+                                                        </td>     
+                                                    </tr>
+                                        
+
+                                        <!--
+                                        
+	                                            <tr align=center>
+		                                            <td bgcolor=white width="100%" colspan="7"><a href=/help/footage.asp target="_self" ><b>*</b> All HCAD residential building measurements...</a></td>
+	                                            </tr>
+                                        
+                                        -->
+                                        
+                                        
+	                                                <tr align="left">
+		                                                <td class="data" width="100%" colspan="7"><b>*</b> All HCAD residential building measurements are done from the exterior, with individual measurements rounded to the closest foot. This measurement includes all closet space, hallways, and interior staircases. Attached garages are not included in the square footage of living area, but valued separately. Living area above <I>attached</I> garages is included in the square footage living area of the dwelling. Living area above <I>detached</I> garages is not included in the square footage living area of the dwelling but is valued separately. This method is used on all residential properties in Harris County to ensure the uniformity of square footage of living area measurements district-wide. There can be a reasonable variance between the HCAD square footage and your square footage measurement, especially if your square footage measurement was an interior measurement or an exterior measurement to the inch.</td>
+	                                                </tr>					
+                                        
+                                    </table>
+ 
+                                                                           
+                                    
+	                                <!-- ---------- Building Details Starts ---------- -->
+	                                <table class="bgcolor_1" cellspacing="0" cellpadding="3" width="100%" border="0">
+                        	            
+	                                    <!--  gray bar spacing  -->
+	                                    <tr>
+	                                        <th class="header" noWrap colspan="7" height="3"><p align="right"></p></th>
+		                                </tr>
+                        		        
+	                                    <tr>
+	                                        <th class="sub_header" width="100%" colspan="7">Building Details (1)</th>
+	                                    </tr>
+                                    </table>
+                                    
+                                    <!-- ---------- Building Data ---------- -->
+	                                <table width="100%" cellspacing="0" cellpadding="3" border="0">
+                        	        
+	                                    <tr  valign="top">
+                        	                
+	                                        <!-- ---------- SPACER COLUMN ---------- -->
+	                                        <td align="center" width="30">&nbsp;</td>
+                        	                
+	                                        <!-- ---------- BUILDING DATA  ---------- -->
+	                                        <td align="center" width="300">
+                        	            
+	                                            <table class="bgcolor_3" cellspacing="1" cellpadding="3" width="100%" border="0">
+	                                                 
+	                                                        <tr>
+	                                                            <th align="center" class="sub_header" colspan="2">Building Data</th>
+	                                                        </tr>
+                        	                                
+	                                                        <tr>
+	                                                            <th class="sub_header">Element</th>
+	                                                            <th class="sub_header">Details</th>
+	                                                        </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Cond / Desir / Util</td>
+	                                                                <td align="center" class="data">Poor</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Foundation Type</td>
+	                                                                <td align="center" class="data">Crawl Space</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Grade Adjustment</td>
+	                                                                <td align="center" class="data">D</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Heating / AC</td>
+	                                                                <td align="center" class="data">None</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Physical Condition</td>
+	                                                                <td align="center" class="data">Poor</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td align="center" bgcolor="WHITE">Exterior Wall</td>
+	                                                                <td align="center" class="data">Frame / Concrete Blk</td>
+	                                                            </tr>
+	                                                
+                                                            <tr>
+                                                                <th class="sub_header">Element</th>
+                                                                <th class="sub_header">Units</th>
+                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td class="data" align="center">Room:  Total</td>
+	                                                                <td bgcolor="WHITE" align="center">5</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td class="data" align="center">Room:  Full Bath</td>
+	                                                                <td bgcolor="WHITE" align="center">1</td>
+	                                                            </tr>
+	                                                
+	                                                            <tr>
+	                                                                <td class="data" align="center">Room:  Bedroom</td>
+	                                                                <td bgcolor="WHITE" align="center">2</td>
+	                                                            </tr>
+	                                                
+	                                            </table>
+                        			            
+			                                    <br />
+	                                            <p>&nbsp;</p>
+                        	                    
+	                                        </td>
+                            	        
+    	                                    <!-- ---------- SPACER COLUMN ---------- -->
+	                                        <td width="31" rowspan="4">&nbsp;</td>
+                        	        
+	                                        <!-- ---------- BUILDING AREAS  ---------- -->
+		                                    <td align="center" width="300">
+		                                        
+	                                                    <table class="bgcolor_3" border="0" cellspacing="1" cellpadding="3" width="300">
+                        	                                
+	                                                        <tr>
+	                                                            <th align="center" class="sub_header" width="300" height="20" colspan="2">Building Areas</th>
+	                                                        </tr>
+                        	                                
+	                                                        <tr>
+	                                                            <th class="sub_header" align="center">Description</th>
+	                                                            <th class="sub_header" align="center">Area</th>
+	                                                        </tr>
+                        	                                
+	                                                        
+	                                                                <tr>
+	                                                                    <td class="data" align="center">BASE AREA PRI</td>
+	                                                                    
+	                                                                            <td class="data" align="center">960</td>
+	                                                                    
+	                                                                </tr>
+	                                                        
+	                                                                <tr>
+	                                                                    <td class="data" align="center">OPEN FRAME PORCH PRI</td>
+	                                                                    
+	                                                                            <td class="data" align="center">36</td>
+	                                                                    
+	                                                                </tr>
+	                                                        
+	                                                                <tr>
+	                                                                    <td class="data" align="center">OPEN FRAME PORCH PRI</td>
+	                                                                    
+	                                                                            <td class="data" align="center">90</td>
+	                                                                    
+	                                                                </tr>
+	                                                        
+	                                                    </table>
+		                                        
+                            	      
+<!-- EXTRA FEATURES was removed-->
+                        	                    
+                        	      
+	                                            
+                        	      
+		                                    </td>	    
+		                                </tr>                       		        
+		                            </table>
+                        		    
+                        		    
+                             
+                            <!-- ---------- Building Ends ---------- -->
+
+
+	                                <!-- ---------- EXTRA FEATURES Building Details Starts ---------- -->
+ 
+	                                            
+                      			                            
+	                                                        <table class="bgcolor_1" border="0" cellspacing="1" cellpadding="3" width="100%">
+	                                                            <!--  gray bar spacing  -->
+	                                                            <tr>
+	                                                                <th class="header" noWrap colspan="6" height="3"><p align="right"></p></th>
+		                                                        </tr>
+
+			                                                    <tr>
+
+	                                                                <th align="center" class="sub_header" colspan="6">Extra Features</th>
+	                                                            </tr>
+                        	                                    
+				                                                <tr>
+	                                                                <th class="sub_header">Line</th>
+	                                                                <th class="sub_header">Description</th>
+	                                                                <th class="sub_header">Quality</th>
+	                                                                <th class="sub_header">Condition</th>
+	                                                                <th class="sub_header">Units</th>
+	                                                                <th class="sub_header">Year Built</th>
+	                                                            </tr>
+                        	                                    
+	                                                            
+				                                                        <tr>
+					                                                        <td class="data" align="center">1</td>
+					                                                        <td class="data" align="center">Carport - Residential</td>
+					                                                        <td class="data" align="center">Fair</td>
+					                                                        <td class="data" align="center">Average</td>
+					                                                        <td class="data" align="center">187</td>
+					                                                        <td class="data" align="center">1990</td>
+				                                                        </tr>
+	                                                             
+	                                                        </table>
+
+                            <!-- ---------- BLUE BAR ---------- -->
+                            <table class="bgcolor_1" cellspacing="1" cellpadding="3" width="100%"  border="0">
+	                            <tr>
+                                    <th class="header" noWrap width="100%" height="3"><p align="right"></p></th>
+                                </tr>
+                            </table>
+
+
+	                                                               
+	                                <!-- ---------- EXTRA FEATURES Building Details  ---------- -->
+
+
+
+
+                    
+
+
+                </td>
+            </tr>
+            
+        </table>
+        
+
+    </body>
+</html>
+
+
